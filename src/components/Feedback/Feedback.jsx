@@ -15,20 +15,29 @@ export default function Feedback() {
 
   // методы класса переписываем на функции
   const addFeedbackIncrement = type => {
-    // устанавливаем switch - чтобы записать свойство в соответствуюющее свойство
-    switch (type) {
-      case 'good':
-        setGood(state => state + 1);
-        break;
-      case 'neutral':
-        setNeutral(state => state + 1);
-        break;
-      case 'bad':
-        setBad(state => state + 1);
-        break;
-      default:
-        throw new Error(`Unknows feedback type - ${type}`);
+    // через if
+    if (type === 'good') {
+      setGood(state => state + 1);
+    } else if (type === 'neutral') {
+      setNeutral(state => state + 1);
+    } else if (type === 'bad') {
+      setBad(state => state + 1);
     }
+
+    // або через switch
+    // switch (type) {
+    //   case 'good':
+    //     setGood(state => state + 1);
+    //     break;
+    //   case 'neutral':
+    //     setNeutral(state => state + 1);
+    //     break;
+    //   case 'bad':
+    //     setBad(state => state + 1);
+    //     break;
+    //   default:
+    //     throw new Error(`Unknows feedback type - ${type}`);
+    // }
   };
 
   const countTotalFeedback = () => {
